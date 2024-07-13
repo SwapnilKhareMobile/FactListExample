@@ -16,6 +16,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -25,12 +27,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-    }
-
-    fun viewModel(): MainViewModel {
-        return (this as? MainActivity)?.let {
-            ViewModelProvider(it)[MainViewModel::class.java]
-        } ?: error("Activity is not MainActivity or ViewModel not found")
     }
 
 }

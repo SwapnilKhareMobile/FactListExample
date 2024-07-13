@@ -1,6 +1,5 @@
 package com.pelagohealth.codingchallenge.di
 
-import com.pelagohealth.codingchallenge.data.datasource.rest.APIFact
 import com.pelagohealth.codingchallenge.data.datasource.rest.FactsRestApi
 import com.pelagohealth.codingchallenge.util.BASE_URL
 import com.squareup.moshi.Moshi
@@ -15,6 +14,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+/**
+ * NetworkModule for providing network dependencies
+ */
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {

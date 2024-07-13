@@ -32,7 +32,7 @@ class MainScreenKtTest {
     fun setup() {
         hiltRule.inject()
         // Get the ViewModel instance from the launched Activity
-        viewModel = composeTestRule.activity.viewModel()
+        viewModel = composeTestRule.activity.viewModel
     }
 
     @Test
