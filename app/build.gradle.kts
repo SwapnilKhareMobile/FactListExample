@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -48,7 +50,13 @@ android {
             merges += "META-INF/LICENSE-notice.md"
         }
     }
-    testOptions { packagingOptions { jniLibs { useLegacyPackaging = true } } }
+    testOptions {
+        packaging {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
 }
 
 dependencies {
@@ -79,13 +87,10 @@ dependencies {
     // Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
-    implementation("androidx.test.ext:junit-ktx:1.2.1")
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("junit:junit:4.13.2")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     // Unit testing
     testImplementation("junit:junit:4.13.2")
-
+    testImplementation("androidx.test.ext:junit-ktx:1.2.1")
     testImplementation ("io.mockk:mockk:1.13.11")
     testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
     testImplementation ("org.jetbrains.kotlin:kotlin-test:2.0.0")
@@ -95,8 +100,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.06.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    androidTestImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
     androidTestImplementation ("com.google.dagger:hilt-android-testing:2.51.1")
     kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.51.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
