@@ -41,7 +41,6 @@ import com.pelagohealth.codingchallenge.presentation.ui.uistate.FactUIState
 @Composable
 fun MainScreen(modifier: Modifier = Modifier, viewModel: MainViewModel = hiltViewModel()) {
 
-    // Add your UI elements here
     val state = viewModel.mFactList.collectAsState()
 
     when(state.value){
